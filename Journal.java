@@ -1,8 +1,14 @@
+import java.util.Observable;
 
-public class Journal extends Library{
+public class Journal extends Observable{
 
-    Journal(){
-        newNumber = true;
+    Journal(Subscriber... s){
+       for(Subscriber elem: s){
+           addObserver(elem);
+
+       }
+        setChanged();
+        notifyObservers();
     }
 
 }

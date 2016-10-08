@@ -1,9 +1,13 @@
+import java.util.Observable;
 
-public class Newspaper extends Library {
+public class Newspaper extends Observable {
 
-    Newspaper() {
-        newNumber = true;
+    Newspaper(Subscriber... s) {
+        for (Subscriber elem : s) {
+            addObserver(elem);
+        }
+        setChanged();
+        notifyObservers();
     }
-
 
 }

@@ -8,18 +8,8 @@ public class Launcher {
         Subscriber s2 = new Subscriber();
         Subscriber s3 = new Subscriber();
 
-        Journal j1 = new Journal();
-        Newspaper n1 = new Newspaper();
+        Journal j1 = new Journal(s1, s3);
+        Newspaper n1 = new Newspaper(s2);
 
-        j1.addObserver(s1);
-        n1.addObserver(s2);
-        j1.addObserver(s3);
-
-        if(j1.newNumberOK()){
-            j1.notifyObserver();
-        }
-        if(n1.newNumberOK()){
-            n1.notifyObserver();
-        }
     }
 }
